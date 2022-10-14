@@ -1,0 +1,27 @@
+rough outline:
+
+mostly one page
+
+login page 
+    username 
+    PW 
+    email
+
+logout and login button
+    email, password, UN
+
+
+text boxes for vin 
+
+split maint page in half 
+ one half: prior maint, dates, mileage
+ other half: upcoming, est dates, est mileage
+
+search box for upcoming and past maint
+    by type, category, etc
+
+transferrable maint info by VIN
+
+print function
+
+
