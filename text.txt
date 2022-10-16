@@ -1,6 +1,13 @@
 rough outline:
 
-mostly one page
+dark theme
+
+homepage: 
+    welcome and info
+
+user dashboard 
+    maint info
+    icons for types of maint
 
 login page 
     username 
@@ -23,5 +30,7 @@ search box for upcoming and past maint
 transferrable maint info by VIN
 
 print function
+
+felicia: models
 
 
