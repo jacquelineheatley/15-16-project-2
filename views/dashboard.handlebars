@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-auto">
+    <h2>Welcome, {{name}}!</h2>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col-md-6">
+    <h3 data-index='{{wills}}' id="total-wills">Create a New Entry:</h3>
+
+    <form class="form new-will-form">
+      <div class="form-group">
+        <label for="will-title">Will Title:</label>
+        <input class="form-input" type="text" id="will-title" name="will-title" />
+      </div>
+      <div class="form-group">
+        <label for="item-desc">Items:</label>
+        <textarea class="form-input" id="item-desc" name="item-desc"></textarea>
+        <textarea class="form-input" id="item-desc" name="item-desc"></textarea>
+        <textarea class="form-input" id="item-desc" name="item-desc"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+    </form>
+  </div>
+
+  {{#if wills.length}}
+  <div class="col-md-6 will-list">
+    <h3>Current Posts:</h3>
+
+    {{#each wills as |will|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4><a href="/will/{{will.id}}">{{will.title}}</a></h4>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{will.id}}">DELETE</button>
+        <a class="btn btn-sm btn-danger" href="/edit/{{will.id}}">EDIT</a>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>
+
+<script src="/js/dashboard.js"></script>
+{{#if blogs.length}}
+<script src="/js/editDelete.js"></script>
+{{/if}}
