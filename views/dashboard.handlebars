@@ -25,18 +25,18 @@
     </form>
   </div>
 
-  {{#if blogs.length}}
-  <div class="col-md-6 blog-list">
+  {{#if wills.length}}
+  <div class="col-md-6 will-list">
     <h3>Current Posts:</h3>
 
-    {{#each blogs as |blog|}}
+    {{#each wills as |will|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/blog/{{blog.id}}">{{blog.name}}</a></h4>
+        <h4><a href="/will/{{will.id}}">{{will.title}}</a></h4>
       </div>
       <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">DELETE</button>
-        <a class="btn btn-sm btn-danger" href="/edit/{{blog.id}}">EDIT</a>
+        <button class="btn btn-sm btn-danger" data-id="{{will.id}}">DELETE</button>
+        <a class="btn btn-sm btn-danger" href="/edit/{{will.id}}">EDIT</a>
       </div>
     </div>
     {{/each}}
