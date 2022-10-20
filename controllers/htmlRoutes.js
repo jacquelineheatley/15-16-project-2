@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
 });
 
 // get Will by ID
-router.get('/will/:id', async (req, res) => {
+router.get('/will/:id', withAuth, async (req, res) => {
   try {
     const willData = await Will.findByPk(req.params.id, {
       include: [

@@ -35,7 +35,13 @@
     {{#each wills as |will|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/will/{{will.id}}">{{will.title}}</a></h4>
+        <h1 class="title">
+          <a href="/will/{{will.id}}">{{will.title}}</a>
+        </h1>
+        {{!-- <p class="item">{{item.name}}{{item.content}}</p>
+        <p class="item">{{item.name}}{{item.content}}</p>
+        <p class="item">{{item.name}}{{item.content}}</p> --}}
+
       </div>
       <div class="col-md-4">
         <button class="btn btn-sm btn-danger" data-id="{{will.id}}">DELETE</button>

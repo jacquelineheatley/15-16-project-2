@@ -11,6 +11,10 @@ Item.init(
             autoIncrement: true,
             primaryKey: true
         },
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         content: {
             type: DataTypes.TEXT,
             allowNull: false

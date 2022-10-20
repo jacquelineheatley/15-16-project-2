@@ -8,11 +8,13 @@ router.get("/", withAuth, (req, res) => {
         user_id: req.session.user_id
       }
     })
-      .then(willData => {
-        const wills = willData.map((will) => will.get({ plain: true }));
+      .then((dbWillData, dbItemData) => {
+        const wills = dbWillData.map((will) => will.get({ plain: true }));
+        const items = dbItemData.map((item) => item.get({ plain: true }));
         res.render("all-posts-admin", {
-          layout: "dashboard",
-          wills
+          layout: 'dashboard',
+          wills,
+          items
         });
       })
       .catch(err => {
