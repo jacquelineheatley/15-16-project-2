@@ -8,7 +8,13 @@ const delBtnHandler = async (event) => {
 
         if (response.ok) {
             document.location.replace('/dashboard');
+        } else {
+            alert('Failed to delete will.')
         }
     
 }
 }
+
+document
+    .querySelector('.will-list')
+    .addEventListener('click', delBtnHandler);
