@@ -114,7 +114,8 @@ router.get('/edit/:id', withAuth, async (req, res) => {
 
     const itemDataDb = await Item.findAll({
       where: {
-        will_id: req.params.id
+        will_id: req.params.id,
+        user_id: req.session.user_id
       },
       attributes: ["id", "content", "createdAt"],
       include: {

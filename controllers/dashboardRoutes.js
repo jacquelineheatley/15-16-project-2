@@ -5,7 +5,7 @@ const withAuth = require("../utils/auth");
 router.get("/", withAuth, (req, res) => {
     Will.findAll({
       where: {
-        userId: req.session.userId
+        user_id: req.session.user_id
       }
     })
       .then(willData => {
