@@ -1,0 +1,23 @@
+<article class="card" id="will" data-postId="{{willData.id}}">
+    <a href="/dashboard" class="is-pulled-right"> &larr; back to dashboard</a>
+    <h2 class="title mt-5">Edit Will</h2>
+    <hr>
+    <form class="update-will-form" id="update-form">
+        <div>
+            <label for="will-title">Will Title:</label>
+            <input class="input" name="blog-name" type="text" value="{{will.title}}" />
+        </div>
+        <div>
+            <label for="will-content">Blog Content:</label>
+            <input class="textarea" name="will-description" type="text" value="{{will.description}}" />
+        </div>
+        <div class="is-pulled-right">
+
+        </div>
+        <button type="submit" class="button is-success" id="save-button">Save Post</button>
+    </form>
+</article>
+
+
+<script src="/js/editDelete.js"></script>
+<script src="/js/items.js"></script>

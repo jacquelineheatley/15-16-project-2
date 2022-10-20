@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
 });
 
 // get Will by ID
-router.get('/will/:id', async (req, res) => {
+router.get('/will/:id', withAuth, async (req, res) => {
   try {
     const willData = await Will.findByPk(req.params.id, {
       include: [
@@ -114,7 +114,8 @@ router.get('/edit/:id', withAuth, async (req, res) => {
 
     const itemDataDb = await Item.findAll({
       where: {
-        will_id: req.params.id
+        will_id: req.params.id,
+        user_id: req.session.user_id
       },
       attributes: ["id", "content", "createdAt"],
       include: {

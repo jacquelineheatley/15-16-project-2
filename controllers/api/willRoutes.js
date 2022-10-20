@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Dashboard } = require('../../models');
+const { Will } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // create new Will
@@ -26,7 +26,7 @@ router.delete('/:id', withAuth, async (req, res) => {
             }
         });
 
-        if (!willdata) {
+        if (!willData) {
             res.status(404).json({ message: 'No will found with the provided ID' });
             return;
         }
