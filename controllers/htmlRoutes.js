@@ -3,6 +3,7 @@ const router = require('express').Router();
 const { Will, User, Item } = require('../models');
 const withAuth = require('../utils/auth');
 
+// homepage route
 router.get('/', async (req, res) => {
   try {
     // get all Wills and JOIN with user data

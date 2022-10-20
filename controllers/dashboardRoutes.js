@@ -1,4 +1,3 @@
-
 const router = require("express").Router();
 const { Will } = require("../models/");
 const withAuth = require("../utils/auth");

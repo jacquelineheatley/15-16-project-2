@@ -1,0 +1,31 @@
+{{#if logged_in}}
+<div class="card" data-blogId="{{willData.id}}">
+    <div class="text-center">
+        <h2 class="card-header">
+            {{title}}
+        </h2>
+        <p>
+            {{description}}
+        </p>
+        <p>
+            Created by {{user.name}} on {{format_date date_created}}
+        </p>
+        {{#each itemData}}
+        {{>items}}
+        {{/each}}
+        <form action="submit" id="comment-form">
+            <div>
+                <label for="comment-text">Comment: </label>
+                <br>
+                <textarea name="comment-text" id="comment-text" cols="30" rows="10"></textarea>
+            </div>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+{{!-- <script src="./js/logout.js"></script> --}}
+<script src="/js/items.js"></script>
+{{/if}}
