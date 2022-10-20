@@ -21,6 +21,8 @@ const createBtnHandler = async (event) => {
     }
 };
 
+
+
 document
     .querySelector('.new-will-form')
     .addEventListener('submit', createBtnHandler);
