@@ -12,7 +12,7 @@ User.hasMany(Item, {
 });
 
 Will.hasMany(Item, {
-    foreignKey: 'user_id'
+    foreignKey: 'will_id'
 });
 
 Will.belongsTo(User, {
@@ -20,7 +20,7 @@ Will.belongsTo(User, {
 });
 
 Item.belongsTo(User, {
-    foreignKey: 'will_id'
+    foreignKey: 'user_id'
 });
 
 Item.belongsTo(Will, {

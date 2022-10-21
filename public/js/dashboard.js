@@ -3,11 +3,16 @@ const createBtnHandler = async (event) => {
 
     const title = document.querySelector('#will-title').value.trim();
     const name = document.querySelector('#item-desc').value.trim();
+    const items = document.querySelectorAll('.will-item');
+    const itemValues = Array.from(items).map( (textarea) => {
+        console.log(textarea);
+        return textarea.value.trim();
+    });
 
-    if (title && name) {
+    if (title && name && items) {
         const response = await fetch(`/api/wills`, {
             method: 'POST',
-            body: JSON.stringify({ title, name }),
+            body: JSON.stringify({ title, name, itemValues }),
             headers: {
                 'Content-Type': 'application/json',
             },

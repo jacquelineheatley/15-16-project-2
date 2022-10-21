@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
 
     res.render('homepage', {
       wills,
-      logged_in: req.session.logged_id
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
@@ -70,7 +70,7 @@ router.get('/will/:id', withAuth, async (req, res) => {
 });
 
 // use withAuth middleware to prevent access to route
-router.get('/dashboard', withAuth, async (req, res) => {
+router.get('/dashboard - old', withAuth, async (req, res) => {
   try {
     // find the logged in user based on session ID
     const userData = await User.findByPk(req.session.user_id, {

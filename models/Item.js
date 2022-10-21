@@ -13,11 +13,11 @@ Item.init(
         },
         name: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         content: {
             type: DataTypes.TEXT,
-            allowNull: false
+            allowNull: true
         },
         will_id: {
             type: DataTypes.INTEGER,

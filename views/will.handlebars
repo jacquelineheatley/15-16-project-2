@@ -1,5 +1,5 @@
 {{#if logged_in}}
-<div class="card" data-blogId="{{willData.id}}">
+<div class="card" data-willId="{{willData.id}}">
     <div class="text-center">
         <h2 class="card-header">
             {{title}}
@@ -10,9 +10,11 @@
         <p>
             Created by {{user.name}} on {{format_date date_created}}
         </p>
+        {{#if items.length}}
         {{#each itemData}}
         {{>items}}
         {{/each}}
+        {{/if}}
   
 
     </div>
