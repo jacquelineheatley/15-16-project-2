@@ -6,6 +6,7 @@ const withAuth = require('../utils/auth');
 // homepage route
 router.get('/', async (req, res) => {
   try {
+    console.log('homepage');
     // get all Wills and JOIN with user data
     const willData = await Will.findAll({
       include: [
