@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
     // serialize data so the handlebars template can read it
     const wills = willData.map((will) => will.get({ plain: true }));
 
-    res.render('homepage', {
+    res.render("homepage", {
       wills,
       logged_in: req.session.logged_in
     });
