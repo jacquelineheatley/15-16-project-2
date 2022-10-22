@@ -13,7 +13,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-const hbs = exphbs.create({ helpers });
+const hbs = exphbs.create({ helpers, layoutsDir: 'main' });
 
 const sess = {
     secret: 'secret',
@@ -34,12 +34,11 @@ app.use(session(sess));
 
 // Inform Express.js on which template engine to use
 app.engine('handlebars', hbs.engine);
-app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname + '../public')));
+app.use(express.static(path.join(__dirname + 'public')));
 
 
 app.use(routes);
