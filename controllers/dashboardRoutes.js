@@ -1,25 +1,64 @@
 const router = require("express").Router();
-const { Will } = require("../models/");
+const { Will, Item, User } = require("../models/");
 const withAuth = require("../utils/auth");
 
-router.get("/", withAuth, (req, res) => {
-    Will.findAll({
-      where: {
-        user_id: req.session.user_id
-      }
-    })
-      .then((dbWillData, dbItemData) => {
-        const wills = dbWillData.map((will) => will.get({ plain: true }));
-        const items = dbItemData.map((item) => item.get({ plain: true }));
-        res.render("all-posts-admin", {
-          layout: 'dashboard',
-          wills,
-          items
-        });
-      })
-      .catch(err => {
-        console.log(err);
-        res.redirect('login');
-      });
-});
+
+// router.get("/", withAuth, async (req, res) => {
+//   try {
+//     const willData = await User.findOne({
+//       attributes: { exclude: ['password'] },
+//       where: {
+//         id: req.session.user_id
+//       },
+//       plain: true,
+//       include: [
+//         {
+//           model: Will,
+//           include: [
+//             {
+//               model: Item,
+//               }
+//           ]
+//         },
+//       ]
+//     });
+//     const wills = willData.map((will) => will.get({ plain: true }));
+//         console.log(JSON.stringify(willData, null, 2));
+//         res.render('dashboard', {
+//           wills,
+//           logged_in: req.session.logged_in
+//         });   
+//     } catch(err) {
+//   console.log(err);
+//   res.redirect('login');
+// }});
 module.exports = router;
+router.get("/", withAuth, (req, res) => {
+  Will.findAll({
+    where: {
+      user_id: req.session.user_id
+    },
+    include: [
+      {
+        model: User,
+        include: [
+          {
+            model: Item,
+          }
+        ]
+      }
+    ]
+  })
+    .then(dbWillData => {
+      const wills = dbWillData.map((will) => will.get({ plain: true }));
+      res.render("dashboard", {
+        ...dbWillData,
+        wills,
+        logged_in: req.session.logged_in
+      });
+    })
+    .catch (err => {
+      console.log(err);
+      res.redirect('login');
+    });
+});

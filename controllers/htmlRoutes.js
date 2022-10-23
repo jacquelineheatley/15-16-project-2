@@ -6,6 +6,7 @@ const withAuth = require('../utils/auth');
 // homepage route
 router.get('/', async (req, res) => {
   try {
+    console.log('homepage');
     // get all Wills and JOIN with user data
     const willData = await Will.findAll({
       include: [
@@ -19,9 +20,9 @@ router.get('/', async (req, res) => {
     // serialize data so the handlebars template can read it
     const wills = willData.map((will) => will.get({ plain: true }));
 
-    res.render('homepage', {
+    res.render("homepage", {
       wills,
-      logged_in: req.session.logged_id
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
@@ -37,6 +38,10 @@ router.get('/will/:id', withAuth, async (req, res) => {
           model: User,
           attributes: ['name'],
         },
+        {
+          model: Item,
+          attributes: ['content'],
+        }
       ],
     });
 
@@ -54,12 +59,20 @@ router.get('/will/:id', withAuth, async (req, res) => {
 
     const will = await willData.get({ plain: true });
 
-    const itemData = await itemDataDb.map(item => item.get({ plain: true }));
+    const itemData = itemDataDb.map(item => item.get({ plain: true }));
+
+    const itemSpecs = JSON.stringify(itemData[2].content);
+   
     willData.items = itemData;
     console.log('WILL:', will);
     console.log('ITEMS:', itemData);
-    res.render('will', {
+    // console.log(itemData.content);
+    // console.log(typeof itemData);
+    console.log(will.items);
+    console.log(typeof will.items);
+      res.render('will', {
       itemData,
+      itemSpecs,
       ...will,
       logged_in: req.session.logged_in
     });
@@ -70,7 +83,7 @@ router.get('/will/:id', withAuth, async (req, res) => {
 });
 
 // use withAuth middleware to prevent access to route
-router.get('/dashboard', withAuth, async (req, res) => {
+router.get('/dashboard - old', withAuth, async (req, res) => {
   try {
     // find the logged in user based on session ID
     const userData = await User.findByPk(req.session.user_id, {
@@ -126,7 +139,7 @@ router.get('/edit/:id', withAuth, async (req, res) => {
 
     const will = await willData.get({ plain: true });
 
-    const itemData = await itemDataDb.map(item => item.get({ plain: true }));
+    const itemData = itemDataDb.map(item => item.get({ plain: true }));
     willData.items = itemData;
     console.log('WILL:', will);
     console.log('ITEMS:', itemData);

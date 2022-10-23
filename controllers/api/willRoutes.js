@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Will } = require('../../models');
+const { Will, Item } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // create new Will
@@ -9,6 +9,14 @@ router.post('/', withAuth, async (req, res) => {
             ...req.body,
             user_id: req.session.user_id
         });
+
+        await Item.bulkCreate(req.body.itemValues.map((item) => {
+            return {
+                will_id: newWill.id,
+                user_id: req.session.user_id,
+                content: item
+            }
+        }))
 
         res.status(200).json(newWill);
     } catch (err) {
