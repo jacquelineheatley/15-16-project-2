@@ -1,25 +1,43 @@
-header, .project:not(:last-child) {
-    border-bottom: 1px solid #ccc;
+@media (min-width: 576px) {
+  body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #010101cf;
+    color: #f1f1f1cf;
   }
-  
-  .no-button {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    color: #1b89bc;
-    text-decoration: none;
-    font-size: 100%;
+  .wrapper {
+    height: 100vh; 
+    width: 100%;
   }
-  
-  .no-button:hover {
-    color: #065b83;
-    text-decoration: underline;
+}
+
+
+@media (min-width: 768px) {
+  body {
+    height: 100%;
+    width: 100%;
   }
-  
-  .dollar-amount {
-    color: #056605;
-    font-weight: bold;
-    margin-left: -5px;
+}
+
+
+@media (min-width: 992px) {
+  body {
+    height: 100%;
+    width: 100%;
   }
-  
+}
+
+
+@media (min-width: 1200px) {
+  body {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+
+@media (min-width: 1400px) {
+  body {
+    height: 100%;
+    width: 100%;
+  }
+}
