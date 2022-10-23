@@ -15,6 +15,8 @@ const delBtnHandler = async (event) => {
 }
 }
 
+
+
 document
     .querySelector('.will-list')
     .addEventListener('click', delBtnHandler);

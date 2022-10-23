@@ -50,10 +50,10 @@ router.get('/will/:id', withAuth, async (req, res) => {
       where: {
         will_id: req.params.id
       },
-      attributes: ["id", "content", "createdAt"],
+      attributes: ['id', 'content', 'createdAt'],
       include: {
         model: User,
-        attributes: ["name"]
+        attributes: ['name']
       }
     });
 
@@ -61,20 +61,19 @@ router.get('/will/:id', withAuth, async (req, res) => {
 
     const itemData = itemDataDb.map(item => item.get({ plain: true }));
 
-    const itemSpecs = JSON.stringify(itemData[2].content);
-   
     willData.items = itemData;
+
     console.log('WILL:', will);
     console.log('ITEMS:', itemData);
-    // console.log(itemData.content);
-    // console.log(typeof itemData);
-    console.log(will.items);
-    console.log(typeof will.items);
-      res.render('will', {
-      itemData,
-      itemSpecs,
+    console.log(will.items[1]);
+  
+    const result = {
       ...will,
-      logged_in: req.session.logged_in
+      itemData,
+      logged_in: req.session.logged_in,
+    }
+    res.render('will', result, function(err, html) {
+      res.send(html);
     });
 
   } catch (err) {
