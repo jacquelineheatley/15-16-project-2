@@ -1,34 +1,53 @@
-const path = require('path');
-const express = require('express');
-const session = require('express-session');
-const exphbs = require('express-handlebars');
-const routes = require('./controllers');
-const helpers = require('./utils/helpers');
-require('dotenv').config();
+// load dependencies 
+var express = require("express");
+var Sequelize = require("sequelize");
+var session = require("express-session");
+var exphbs = require('express-handlebars');
+var path = require('path');
+var routes = require('./controllers');
+var helpers = require('./utils/helpers');
+var dotenv = require('dotenv').config();
 
+// initalize sequelize with session store
+var SequelizeStore = require("connect-session-sequelize")(session.Store)
 
-const sequelize = require('./config/connection');
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
+// create database, make sure 'sqlite3' in package.json 
+var sequelize = new Sequelize("database", "username", "password", {
+    dialect: "sqlite",
+    storage: "./session.sqlite",
+});
 
-const app = express();
-const PORT = process.env.PORT || 8080;
-
-const hbs = exphbs.create({ helpers });
-
-const sess = {
-    secret: 'secret',
+// configure express
+var app = express();
+app.use(
+    session({
+        secret: "keyboard cat",
+        store: new SequelizeStore({
+            db: sequelize,
+        }),
+        resave: false, // we support the touch method so per the express-session docs this should be set to false
+        proxy: true, // if you do SSL outside of node.
+    })
+);
+// continue as normal
+r
+app.use(
+    session({
+    secret: "secret",
     cookie: {
-        // maxAge: 300000,
-        // httpOnly: true,
-        // secure: false,
-        // sameSite: 'strict',
+        secret: "meow",
+        store: new SequelizeStore({
+            db: sequelize, 
+        }),
     },
-    resave: false,
     saveUninitialized: true,
     store: new SequelizeStore({
         db: sequelize
-    })
-};
+    }),
+    resave: false, // we support the touch method so per the express-session docs this should be set to false
+    proxy: true, // if you do SSL outside of node.
+  })
+);
 
 app.use(session(sess));
 
@@ -45,6 +64,6 @@ app.use(routes);
 
 
 sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => 
-    console.log(`Now listening at http://localhost:${PORT}.`));
+    app.listen(PORT, () =>
+        console.log(`Now listening at http://localhost:${PORT}.`));
 });
