@@ -11,13 +11,13 @@ Item.init(
             autoIncrement: true,
             primaryKey: true
         },
-        name: {
+        itemName: {
             type: DataTypes.STRING,
             allowNull: true,
         },
         content: {
-            type: DataTypes.TEXT,
-            allowNull: true
+            type: DataTypes.STRING,
+            allowNull: true,
         },
         will_id: {
             type: DataTypes.INTEGER,

@@ -10,11 +10,12 @@
         <p>
             Created by {{user.name}} on {{format_date date_created}}
         </p>
-        {{#if items.length}}
-        {{#each itemData}}
-        {{>items}}
-        {{/each}}
-        {{/if}}
+        {{!-- {{#if items.length}} --}}
+        {{will.items}}
+        {{itemData}}
+        {{!-- {{>items}} --}}
+        {{!-- {{/each}} --}}
+        {{!-- {{/if}} --}}
   
 
     </div>

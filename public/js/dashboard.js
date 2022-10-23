@@ -2,17 +2,17 @@ const createBtnHandler = async (event) => {
     event.preventDefault();
 
     const title = document.querySelector('#will-title').value.trim();
-    const name = document.querySelector('#item-desc').value.trim();
-    const items = document.querySelectorAll('.will-item');
-    const itemValues = Array.from(items).map( (textarea) => {
+    const content = document.querySelector('#item-desc').value.trim();
+    const itemName = document.querySelectorAll('.will-item');
+    const itemValues = Array.from(itemName).map( (textarea) => {
         console.log(textarea);
         return textarea.value.trim();
     });
 
-    if (title && name && items) {
+    if (title && content && itemName) {
         const response = await fetch(`/api/wills`, {
             method: 'POST',
-            body: JSON.stringify({ title, name, itemValues }),
+            body: JSON.stringify({ title, content, itemName, itemValues }),
             headers: {
                 'Content-Type': 'application/json',
             },

@@ -38,6 +38,10 @@ router.get('/will/:id', withAuth, async (req, res) => {
           model: User,
           attributes: ['name'],
         },
+        {
+          model: Item,
+          attributes: ['content'],
+        }
       ],
     });
 
@@ -55,12 +59,20 @@ router.get('/will/:id', withAuth, async (req, res) => {
 
     const will = await willData.get({ plain: true });
 
-    const itemData = await itemDataDb.map(item => item.get({ plain: true }));
+    const itemData = itemDataDb.map(item => item.get({ plain: true }));
+
+    const itemSpecs = JSON.stringify(itemData[2].content);
+   
     willData.items = itemData;
     console.log('WILL:', will);
     console.log('ITEMS:', itemData);
-    res.render('will', {
+    // console.log(itemData.content);
+    // console.log(typeof itemData);
+    console.log(will.items);
+    console.log(typeof will.items);
+      res.render('will', {
       itemData,
+      itemSpecs,
       ...will,
       logged_in: req.session.logged_in
     });
@@ -127,7 +139,7 @@ router.get('/edit/:id', withAuth, async (req, res) => {
 
     const will = await willData.get({ plain: true });
 
-    const itemData = await itemDataDb.map(item => item.get({ plain: true }));
+    const itemData = itemDataDb.map(item => item.get({ plain: true }));
     willData.items = itemData;
     console.log('WILL:', will);
     console.log('ITEMS:', itemData);
