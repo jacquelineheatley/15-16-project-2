@@ -2,42 +2,102 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>INDEX MORI</title>
-  <link rel="stylesheet" href="/css/jass.css">
-  <link rel="stylesheet" href="/css/style.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{!-- these three tags above must stay the same for bootstrap --}}
+    <title>IndexMori | Bequeith and Bequeithed Upon</title>
+
+    {{!-- bootstrap --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="/css/jass.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/x-icon"
+        href="https://gofreezedry.com/wp-content/uploads/2022/10/create-new-profile.png">/>
 </head>
 
 <body>
-  <div class="flex-column justify-space-around">
-    <a href="/">
-    <img src="/assets/banners/banner-10.png" alt="banner-fo-sho" />
-    </a>
-    <header class="display-flex justify-space-between align-center p-2">
-      <nav>
-        <!-- Conditionally render login or logout links -->
+    <wrapper>
+        <div class="container-fluid">
+            <img src="https://gofreezedry.com/wp-content/uploads/2022/10/banner-11.png" class="img-fluid"
+                alt="Responsive image">
+        </div>
+    </wrapper>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="navigation">
+            <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/dashboard">dashboard</a> |
-        <button class="no-button" id="logout">logout</button>
+        <button class="btn btn" id="logout">logout</button>
+        <button type="button" class="btn btn-default navbar-btn">Sign out</button>
+        <p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link">Mark Otto</a></p>
+        {{!-- <a href="/logout" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">logout</a> --}}
         {{else}}
         <a href="/login">login</a>
+        <button type="button" href="/login" class="btn btn-default navbar-btn">Sign in</button>
+        {{!-- <a href="/login" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">login</a> --}}
         {{/if}}
-      </nav>
-    </header>
-    <main class="container container-fluid mt-5">
-      <!-- Render the sub layout -->
-      {{{ body }}}
-    </main>
-    <footer>
-      
-    </footer>
-  </div>
+        {{!-- <a href="/logout" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">logout</a> --}}
+        </div>
+    </nav>
 
-  <!-- Render script for logged in users only -->
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
+
+    <wrapper>
+        <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+        <button class="btn btn" id="logout">logout</button>
+        <button type="button" class="btn btn-default navbar-btn">Sign out</button>
+        <p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link">Mark Otto</a></p>
+        {{!-- <a href="/logout" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">logout</a> --}}
+        {{else}}
+        <a href="/login">login</a>
+        <button type="button" href="/login" class="btn btn-default navbar-btn">Sign in</button>
+        {{!-- <a href="/login" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">login</a> --}}
+        {{/if}}
+        {{!-- <a href="/logout" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">logout</a> --}}
+    </wrapper>
+
+    <wrapper>
+        <div class="container-fluid">
+            <!-- Content here -->
+            {{{ body }}}
+        </div>
+    </wrapper>
+    <wrapper>
+        <div class="container-fluid">
+            <p>
+                <strong>Index MORI</strong> by <a href="https://jgthms.com">Group 6</a>. The source code is
+                licensed
+                <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+                is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+            </p>
+        </div>
+    </wrapper>
+
+    <!-- Render script for logged in users only -->
+
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
+    </wrapper>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+        crossorigin="anonymous"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
