@@ -10,13 +10,15 @@
         <p>
             Created by {{user.name}} on {{format_date date_created}}
         </p>
-        {{!-- {{#if items.length}} --}}
-        {{will.items}}
-        {{itemData}}
-        {{!-- {{>items}} --}}
-        {{!-- {{/each}} --}}
-        {{!-- {{/if}} --}}
-  
+      <div>
+            {{#each itemData}}
+                <div>
+                    <div>{{this.content}}</div>
+                    <br>
+                    <div>added: {{this.createdAt}}</div>
+                </div>
+            {{/each}}
+        </div>
 
     </div>
 </div>
