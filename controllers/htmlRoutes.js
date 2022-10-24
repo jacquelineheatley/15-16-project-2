@@ -142,7 +142,7 @@ router.get('/edit/:id', withAuth, async (req, res) => {
     willData.items = itemData;
     console.log('WILL:', will);
     console.log('ITEMS:', itemData);
-    res.render('will', {
+    res.render('editWillPage', {
       itemData,
       ...will,
       logged_in: req.session.logged_in

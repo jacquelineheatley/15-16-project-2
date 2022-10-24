@@ -30,8 +30,8 @@
       <nav>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/dashboard">dashboard</a>
-        <button class="no-button" id="logout">logout</button>
+        <a class="btn btn-primary" href="/dashboard">dashboard</a>
+        <button class="no-button btn btn-primary" id="logout">logout</button>
         {{else}}
         <a class="btn btn-primary" href="/login">login</a>
         {{/if}}
