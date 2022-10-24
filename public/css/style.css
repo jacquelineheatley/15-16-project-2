@@ -1,71 +1,79 @@
-/* // Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px)
- {
+@import "//node_modules/bootstrap/scss/bootstrap";
+/* file import */
+/* $radius is the parameter of the function */
+.card {
+  background-color: white;
+  width: 60rem;
+  overflow: hidden;
+  margin: 2rem;
+  box-shadow: 5px 5px 5px 5px #000;
+  border-radius: 0.5rem;
+  /* using the mixins function */
+}
+.card img {
+  height: 15rem;
+  background-size: cover;
+  background-position: center center;
+}
+.card .card_content {
+  padding: 2rem;
+}
+.card .card_title {
+  margin: 0;
+  color: black;
+}
+.card .card_description {
+  margin: 0;
+  color: #999;
+}
+.card_dark {
+  background-color: black;
+}
+.card_dark .card_title {
+  color: white;
+}
+
+.card_light {
+  background-color: rgba(241, 241, 241, 0.8117647059);
+  color: darkblue;
+  font-family: "Poppins", Helvertica, sans-serif;
+}
+
+@media (min-width: 576px) {
   body {
-    background-color: #010101cf;
-    color: #f1f1f1cf !important;
-    height: 100%;
- }
- }
-/* // Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-  body {
-    background-color: #010101cf;
-    color: #f1f1f1cf !important;
+    background-color: rgba(1, 1, 1, 0.8117647059);
+    color: rgba(241, 241, 241, 0.8117647059) !important;
     height: 100%;
   }
 }
-
-/* // Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
+@media (min-width: 576px) and (min-width: 768px) {
+  body {
+    background-color: rgba(1, 1, 1, 0.8117647059);
+    color: rgba(241, 241, 241, 0.8117647059) !important;
+    height: 100%;
+  }
+}
+/* @media (min-width: 992px) {
   body {
     background-color: #010101cf;
     color: #f1f1f1cf !important;
     height: 100%;
+    width: 100vh;
   }
-}
-
+} */
 /* // X-Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
+/* @media (min-width: 1200px) {
   body {
   background-color: #010101cf;
   color: #f1f1f1cf !important;
   height: 100%;
-}}
-
+  width: 100vh;
+}} */
 /* // XX-Large devices (larger desktops, 1400px and up) */
-@media (min-width: 1400px) {
+/* @media (min-width: 1400px) {
   body {
   background-color: #010101cf;
   color: #f1f1f1cf !important;
   height: 100%;
-}} 
-
-
-
-
-/* header, .project:not(:last-child) {
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .no-button {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    color: #1b89bc;
-    text-decoration: none;
-    font-size: 100%;
-  }
-  
-  .no-button:hover {
-    color: #065b83;
-    text-decoration: underline;
-  }
-  
-  .dollar-amount {
-    color: #056605;
-    font-weight: bold;
-    margin-left: -5px;
-  } */
-  
+  width: 100vh;
+}} *//*# sourceMappingURL=style.css.map */
