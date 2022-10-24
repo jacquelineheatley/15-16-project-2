@@ -7,18 +7,33 @@
 @import 'card';
 
 $primary: #0074d9;
+$secondary: #595e63;
+$success: #299c1c;
+$info: #4fbcdd;
+$warning: #f3c83a;
 $danger: #ff4136;
 $lightgray: #f1f1f1cf;
 $blue: #0d6efd;
+$blue-900: #112a50;
+$fonts: 'Poppins', Helvertica, sans-serif;
+
 
 $theme-colors: (
-  "primary": $primary,
-  "danger": $danger
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  // "light":      $light,
+  // "dark":       $dark,
+  "darkblue":   $blue-900
 );
 
 .card_light {
   background-color: $lightgray;
-  color: $blue;
+  color: darkblue;
+  font-family: $fonts;
 }
 
    
@@ -32,7 +47,7 @@ $spacing: 2rem;
  {
   body {
     background-color: #010101cf;
-    // color: #f1f1f1cf !important;
+    color: #f1f1f1cf !important;
     height: 100%;
  }
 
@@ -40,7 +55,7 @@ $spacing: 2rem;
 @media (min-width: 768px) {
   body {
     background-color: #010101cf;
-    // color: #f1f1f1cf !important;
+    color: #f1f1f1cf !important;
     height: 100%;
   }
 }}

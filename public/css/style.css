@@ -35,18 +35,21 @@
 
 .card_light {
   background-color: rgba(241, 241, 241, 0.8117647059);
-  color: #0d6efd;
+  color: darkblue;
+  font-family: "Poppins", Helvertica, sans-serif;
 }
 
 @media (min-width: 576px) {
   body {
     background-color: rgba(1, 1, 1, 0.8117647059);
+    color: rgba(241, 241, 241, 0.8117647059) !important;
     height: 100%;
   }
 }
 @media (min-width: 576px) and (min-width: 768px) {
   body {
     background-color: rgba(1, 1, 1, 0.8117647059);
+    color: rgba(241, 241, 241, 0.8117647059) !important;
     height: 100%;
   }
 }
