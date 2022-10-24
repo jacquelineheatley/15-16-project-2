@@ -1,4 +1,50 @@
-header, .project:not(:last-child) {
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px)
+ {
+  body {
+    background-color: #010101cf;
+    color: #f1f1f1cf !important;
+    height: 100%;
+ }
+ }
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  body {
+    background-color: #010101cf;
+    color: #f1f1f1cf !important;
+    height: 100%;
+  }
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  body {
+    background-color: #010101cf;
+    color: #f1f1f1cf !important;
+    height: 100%;
+  }
+}
+
+/* // X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  body {
+  background-color: #010101cf;
+  color: #f1f1f1cf !important;
+  height: 100%;
+}}
+
+/* // XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+  body {
+  background-color: #010101cf;
+  color: #f1f1f1cf !important;
+  height: 100%;
+}} 
+
+
+
+
+/* header, .project:not(:last-child) {
     border-bottom: 1px solid #ccc;
   }
   
@@ -21,5 +67,5 @@ header, .project:not(:last-child) {
     color: #056605;
     font-weight: bold;
     margin-left: -5px;
-  }
+  } */
   
