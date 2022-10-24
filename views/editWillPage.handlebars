@@ -5,11 +5,16 @@
     <form class="update-will-form" id="update-form">
         <div>
             <label for="will-title">Will Title:</label>
-            <input class="input" name="blog-name" type="text" value="{{will.title}}" />
+            <input class="input" name="will-name" type="text" value="{{title}}" />
         </div>
         <div>
             <label for="will-content">Will Items:</label>
-            <input class="textarea" name="will-description" type="text" value="{{will.description}}" />
+            {{#each itemData}}
+            <li class="list-group-item">
+            <input class="textarea" name="will-description" type="text" value="{{content}}" />
+            </li>
+            {{/each}}
+
         </div>
         <div class="is-pulled-right">
 
