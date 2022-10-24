@@ -1,27 +1,25 @@
 {{#if logged_in}}
-<div class="card" data-willId="{{willData.id}}">
-    <div class="text-center">
-        <h2 class="card-header">
-            {{title}}
-        </h2>
-        <p>
-            {{description}}
-        </p>
-        <p>
-            Created by {{user.name}} on {{format_date date_created}}
-        </p>
-      <div>
-            {{#each itemData}}
-                <div>
-                    <div>{{this.content}}</div>
-                    <br>
-                    <div>added: {{this.createdAt}}</div>
-                </div>
-            {{/each}}
-        </div>
+<div class="card_light" data-willId="{{willData.id}}">
 
+    <div class="text-center">
+
+        <ul class="list-group will-card">
+            <li class="text-dark list-group-item">
+                <h4>{{title}}</h4>
+                <p>
+                    Created by {{user.name}} on {{format_date date_created}}
+                </p>
+            </li>
+            {{#each itemData}}
+            <li class="list-group-item">
+                {{this.content}}
+            </li>
+            {{/each}}
+        </ul>
+   
     </div>
 </div>
 <script src="/js/logout.js"></script>
-{{!-- <script src="/js/items.js"></script> --}}
+{{!--
+<script src="/js/items.js"></script> --}}
 {{/if}}
