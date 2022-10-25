@@ -16,8 +16,6 @@ const delBtnHandler = async (event) => {
 }
 
 
-<<<<<<< Updated upstream
-=======
 const updateBtnHandler = async (event) => {
     event.preventDefault();
   
@@ -43,8 +41,8 @@ const updateBtnHandler = async (event) => {
   
   }
 
+document.querySelector('.button').addEventListener('submit', updateBtnHandler);
 
->>>>>>> Stashed changes
 
 document
     .querySelector('.will-list')
