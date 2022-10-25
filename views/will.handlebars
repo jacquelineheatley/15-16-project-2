@@ -1,10 +1,10 @@
 {{#if logged_in}}
-<div class="card_light" data-willId="{{willData.id}}">
+<div data-willId="{{willData.id}}">
 
-    <div class="text-center">
+    <div class="card text-center">
 
         <ul class="list-group will-card">
-            <li class="card_light list-group-item">
+            <li class="text-dark list-group-item">
                 <h4>{{title}}</h4>
                 <p>
                     Created by {{user.name}} on {{format_date date_created}}
@@ -20,6 +20,4 @@
     </div>
 </div>
 <script src="/js/logout.js"></script>
-{{!--
-<script src="/js/items.js"></script> --}}
 {{/if}}

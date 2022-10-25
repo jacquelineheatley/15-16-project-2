@@ -1,25 +1,29 @@
 <article class="card" id="will" data-postId="{{willData.id}}">
-    <a href="/dashboard" class="is-pulled-right"> &larr; back to dashboard</a>
-    <h2 class="title mt-5">Edit Will</h2>
-    <hr>
+    <h2 class="title mt-5 text-dark">Edit Will</h2>
+    {{!--
+    <hr> --}}
     <form class="update-will-form" id="update-form">
-        <div>
-            <label for="will-title">Will Title:</label>
+        <div class="card text-center">
+            <label class="text-dark" for="will-title">Will Title:</label>
             <input class="input" name="will-name" type="text" value="{{title}}" />
-        </div>
-        <div>
-            <label for="will-content">Will Items:</label>
-            {{#each itemData}}
-            <li class="list-group-item">
-            <input class="textarea" name="will-description" type="text" value="{{content}}" />
-            </li>
-            {{/each}}
 
+            {{!-- <div class="card text-center"> --}}
+
+                <label class="text-dark" for="will-content">Will Items:</label>
+                <ul class="list-group">
+                    {{#each itemData}}
+                    <li class="list-group-item">
+                        <input class="textarea w-100" name="will-items" type="text" value="{{content}}" />
+                    </li>
+                    {{/each}}
+                </ul>
+                {{!--
+            </div> --}}
         </div>
         <div class="is-pulled-right">
 
         </div>
-        <button type="submit" class="button is-success" id="save-button">Save Post</button>
+        <button type="submit" class="button" id="save-button">Save Post</button>
     </form>
 </article>
 
