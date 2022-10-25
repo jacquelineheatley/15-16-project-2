@@ -41,7 +41,7 @@ const delBtnHandler = async (event) => {
   
 //   }
 
-document.querySelector('.button').addEventListener('submit', updateBtnHandler);
+// document.querySelector('.button').addEventListener('submit', updateBtnHandler);
 
 
 document
