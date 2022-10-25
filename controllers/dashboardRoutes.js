@@ -53,7 +53,7 @@ router.get("/", withAuth, (req, res) => {
       const wills = dbWillData.map((will) => will.get({ plain: true }));
       console.log(wills);
       const username = wills[0].user.name;
-      res.render("dashboard", {
+      res.render('dashboard', {
         ...dbWillData,
         wills,
         username,

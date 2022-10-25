@@ -16,6 +16,35 @@ const delBtnHandler = async (event) => {
 }
 
 
+<<<<<<< Updated upstream
+=======
+const updateBtnHandler = async (event) => {
+    event.preventDefault();
+  
+    const id = will.getElementById('save-button');
+  
+    const response = await fetch(`/api/blogs/${id}`, {
+      method: "PUT",
+      body: JSON.stringify({
+        title,
+        content
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    if (response.ok) {
+      document.location.replace(`/dashboard/`);
+    } else if (req.session.user_id != req.params.id) {
+      res.redirect('/homepage/');
+    } else {
+      alert(response.statusText);
+    }
+  
+  }
+
+
+>>>>>>> Stashed changes
 
 document
     .querySelector('.will-list')
